@@ -6,3 +6,5 @@ class NoSuchCustomerName < StandardError
 end
 class NoSuchTitle < StandardError
 end
+class OutOfStockError < StandardError
+end

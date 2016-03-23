@@ -19,6 +19,10 @@ class Customer
      raise NoSuchCustomerName , "#{look_up_name} is not a customer name."
   end
 
+  def purchase(product_purchased)
+    Transaction.new(self , product_purchased)
+  end
+
 
   private
 
