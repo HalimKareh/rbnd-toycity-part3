@@ -2,9 +2,11 @@ class Customer
   attr_reader :name
 
   @@customers = []
+
   def initialize(options={})
     @name = options[:name]
-    add_to_products
+
+    add_to_customers
   end
 
   def self.all
@@ -26,7 +28,14 @@ class Customer
 
   private
 
-  def add_to_products
-    @@customers << self
-  end
+  def add_to_customers
+    customer_already_in_list= false
+    @@customers.each{|cust| customer_already_in_list = true if cust.name.downcase == self.name.downcase}
+    unless customer_already_in_list
+      @@customers << self
+    else
+      raise DuplicateCustomerError, "There already is a customer of the name: #{self.name} in the database."
+    end
+   end
+
 end

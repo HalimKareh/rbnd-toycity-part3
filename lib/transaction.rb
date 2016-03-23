@@ -17,7 +17,11 @@ class Transaction
   end
 
   def self.find(index)
-    @@transactions[index-1]
+    if @@transactions.length >= index-1
+      @@transactions[index-1]
+    else
+      raise NoTransactionOfThisID, "The id #{index} is not a valid transaction id."
+    end
   end
 
 
@@ -31,4 +35,5 @@ class Transaction
       raise OutOfStockError , "#{@product.title} is out of stock"
     end
   end
+
 end

@@ -41,8 +41,7 @@ class Product
     unless title_already_in_list
       @@products << self
     else
-      puts "There already is a product of the name: #{self.title} in the database"
-      # raise DuplicateProductError, "There already is a product of the name: #{self.title} in the database"
+      raise DuplicateProductError, "There already is a product of the name: #{self.title} in the database"
     end
   end
 
