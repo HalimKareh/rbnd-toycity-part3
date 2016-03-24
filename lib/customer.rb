@@ -31,7 +31,7 @@ class Customer
 
   def print_all_transactions
     s=""
-    @customer_transactions.length.times{|nb| s<< print_transaction_at(nb)<< "     "}
+    @customer_transactions.length.times{|nb| s<< print_transaction_at(nb)<< "\n"}
     s
   end
 

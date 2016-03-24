@@ -66,11 +66,20 @@ puts transaction2.product == nanoblock # Should return true
 
 #walter.purchase(firehouse)
 # Should return OutOfStockError: 'LEGO Firehouse Headquarter' is out of stock.
-puts "********** ********** *********"
+puts " \n********** additional features ********* "
 # Soley created to test additional features
 Product.new(title: "LEGO Death Star", price: 499.99, stock: 10)
 Product.new(title: "LEGO X-Wing", price: 299.99, stock: 19)
 
 death_star = Product.find_by_title("Lego Death star")
+x_wing = Product.find_by_title("LEGO X-Wing")
 
 puts walter.purchase(death_star)
+puts walter.purchase(x_wing)
+
+puts "\nWalter's first transaction: \n********* ********* ********"
+puts walter.print_transaction_at(0)
+puts "\nAll of Walter's Transactions: \n********* ********* ********"
+puts walter.print_all_transactions
+puts "\nTotal amount paid by walter:  \n********* ********* ********"
+puts walter.total_amount_spent
