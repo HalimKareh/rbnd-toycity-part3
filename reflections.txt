@@ -1,0 +1,11 @@
+How long did you spend working on this project?
+  About 2 full days.
+What was the most rewarding challenge you conquered?
+  When everything Worked.
+What two additional features did you build? Why?
+  1.Each customer has his own transactions list
+  2.With the method total_amount_spent we can calculate each customers spending fees at toy city.
+Where do you still have room to grow?
+  making full stack applications?(I'm not sure if I got the question)
+
+      Thank you for your time

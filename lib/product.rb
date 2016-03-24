@@ -30,7 +30,7 @@ class Product
   end
 
   def in_stock?()
-    (@stock == 0)? false : true
+    !(@stock == 0)
   end
 
   private

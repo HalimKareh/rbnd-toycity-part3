@@ -5,11 +5,15 @@ class Transaction
   @@id = 0
 
   def initialize(customer, product)
-    @@id +=1
-    @id = @@id
-    @customer = customer
-    @product = product
-    add_to_transactions
+    if product.stock > 0
+      @@id +=1
+      @id = @@id
+      @customer = customer
+      @product = product
+      add_to_transactions
+    else
+      raise OutOfStockError , "#{@product.title} is out of stock"
+    end
   end
 
   def self.all
@@ -24,16 +28,17 @@ class Transaction
     end
   end
 
+  def transaction_to_s
+    s=""
+    s<<@customer.name << " bought a " << @product.title << " at the price of $" << @product.price.to_s << "."
+    s
+  end
 
   private
 
   def add_to_transactions
     @@transactions << self
-    if (@product.stock > 0)
-      @product.stock -=1
-    else
-      raise OutOfStockError , "#{@product.title} is out of stock"
-    end
+    @product.stock -=1
   end
 
 end

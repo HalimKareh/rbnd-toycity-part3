@@ -8,6 +8,7 @@ require_relative "lib/transaction"
 Product.new(title: "LEGO Iron Man vs. Ultron", price: 22.99, stock: 55)
 Product.new(title: "Nano Block Empire State Building", price: 49.99, stock: 12)
 Product.new(title: "LEGO Firehouse Headquarter", price: 199.99, stock: 0)
+# Soley created to test additional features
 
 puts Product.all.count # Should return 3
 
@@ -65,3 +66,11 @@ puts transaction2.product == nanoblock # Should return true
 
 #walter.purchase(firehouse)
 # Should return OutOfStockError: 'LEGO Firehouse Headquarter' is out of stock.
+puts "********** ********** *********"
+# Soley created to test additional features
+Product.new(title: "LEGO Death Star", price: 499.99, stock: 10)
+Product.new(title: "LEGO X-Wing", price: 299.99, stock: 19)
+
+death_star = Product.find_by_title("Lego Death star")
+
+puts walter.purchase(death_star)

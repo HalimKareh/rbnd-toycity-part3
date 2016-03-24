@@ -1,11 +1,11 @@
 class Customer
-  attr_reader :name
+  attr_reader :name , :customer_transactions
 
   @@customers = []
 
   def initialize(options={})
     @name = options[:name]
-
+    @customer_transactions = []
     add_to_customers
   end
 
@@ -22,9 +22,24 @@ class Customer
   end
 
   def purchase(product_purchased)
-    Transaction.new(self , product_purchased)
+    @customer_transactions << Transaction.new(self , product_purchased)
   end
 
+  def print_transaction_at(index)
+    @customer_transactions[index].transaction_to_s
+  end
+
+  def print_all_transactions
+    s=""
+    @customer_transactions.length.times{|nb| s<< print_transaction_at(nb)<< "     "}
+    s
+  end
+
+  def total_amount_spent
+    tot = 0
+    @customer_transactions.each{|tran| tot += tran.product.price}
+    @name << " has spent $"<<tot.to_s<<" at Toy City!"
+  end
 
   private
 
